@@ -1,12 +1,15 @@
 package com.pmp.restful_web_service.controller;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.pmp.restful_web_service.model.User;
 import com.pmp.restful_web_service.service.interfaces.UserService;
 
+import java.net.URI;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +36,12 @@ public class UserController {
     }
 
     @PostMapping()
-    public User createUser(@RequestBody User user) {
-        return this.userService.createUser(user);
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        var createdUser = this.userService.createUser(user);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(createdUser.getId()).toUri();
+
+        return ResponseEntity.created(location).body(createdUser);
     }
 }

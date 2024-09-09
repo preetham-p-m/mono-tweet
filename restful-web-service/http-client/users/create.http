@@ -1,0 +1,7 @@
+POST http://localhost:8080/api/users
+content-type: application/json
+
+{
+  "name": "Preetham",
+  "dateOfBirth": "2000-10-25"
+}

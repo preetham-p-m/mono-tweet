@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.pmp.restful_web_service.exception.UserNotFoundException;
 import com.pmp.restful_web_service.model.User;
 import com.pmp.restful_web_service.service.interfaces.UserService;
 
@@ -29,7 +30,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(int id) {
-        return users.stream().filter(user -> user.getId() == id).findFirst().get();
+        return users.stream().filter(user -> user.getId() == id).findFirst()
+                .orElseThrow(() -> new UserNotFoundException("userId " + id + " not found"));
     }
 
     @Override
