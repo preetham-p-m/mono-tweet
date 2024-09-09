@@ -10,6 +10,7 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,4 +45,10 @@ public class UserController {
 
         return ResponseEntity.created(location).body(createdUser);
     }
+
+    @DeleteMapping("{id}")
+    public void deleteUserById(@PathVariable int id) {
+        this.userService.deleteUserById(id);
+    }
+
 }

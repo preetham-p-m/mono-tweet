@@ -30,7 +30,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(int id) {
-        return users.stream().filter(user -> user.getId() == id).findFirst()
+        return users.stream()
+                .filter(user -> user.getId() == id)
+                .findFirst()
                 .orElseThrow(() -> new UserNotFoundException("userId " + id + " not found"));
     }
 
@@ -39,6 +41,13 @@ public class UserServiceImpl implements UserService {
         user.setId(count++);
         users.add(user);
         return user;
+    }
+
+    @Override
+    public void deleteUserById(int id) {
+        if (getUserById(id) != null) {
+            users.removeIf(user -> user.getId() == id);
+        }
     }
 
 }
