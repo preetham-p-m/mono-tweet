@@ -1,0 +1,10 @@
+### Default Application language
+GET http://localhost:8080/hello-i18n
+
+### Dutch Language
+GET http://localhost:8080/hello-i18n
+Accept-Language: nl
+
+### French Language
+GET http://localhost:8080/hello-i18n
+Accept-Language: fr
