@@ -6,6 +6,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.pmp.restful_web_service.model.User;
 import com.pmp.restful_web_service.service.interfaces.UserService;
 
+import jakarta.validation.Valid;
+
 import java.net.URI;
 import java.util.List;
 
@@ -37,7 +39,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         var createdUser = this.userService.createUser(user);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")

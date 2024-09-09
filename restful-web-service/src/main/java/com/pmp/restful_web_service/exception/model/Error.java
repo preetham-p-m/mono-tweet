@@ -1,4 +1,4 @@
-package com.pmp.restful_web_service.exception;
+package com.pmp.restful_web_service.exception.model;
 
 import java.time.LocalDateTime;
 
