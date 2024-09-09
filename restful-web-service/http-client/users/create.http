@@ -1,7 +1,27 @@
+### Valid Request
 POST http://localhost:8080/api/users
 content-type: application/json
 
 {
   "name": "Pr",
   "dateOfBirth": "2025-10-25"
+}
+
+### Invalid Name
+POST http://localhost:8080/api/users
+content-type: application/json
+
+{
+  "name": "Pr",
+  "dateOfBirth": "2000-10-25"
+}
+
+
+### Invalid Name and DOB
+POST http://localhost:8080/api/users
+content-type: application/json
+
+{
+  "name": "Pr",
+  "dateOfBirth": "3000-10-25"
 }
