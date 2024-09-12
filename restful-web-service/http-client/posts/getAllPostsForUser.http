@@ -1,0 +1,6 @@
+### Valid User
+GET http://localhost:8080/api/posts/user/1
+
+
+### When userId does not exists
+GET http://localhost:8080/api/posts/user/110

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.pmp.restful_web_service.exception.errors.UserNotFoundException;
 import com.pmp.restful_web_service.model.Post;
+import com.pmp.restful_web_service.model.PostRecord;
 import com.pmp.restful_web_service.repository.PostRepository;
 import com.pmp.restful_web_service.repository.UserRepository;
 import com.pmp.restful_web_service.service.interfaces.PostService;
@@ -43,6 +44,24 @@ public class PostServiceImpl implements PostService {
         }
 
         return this.postRepository.findAllByUserId(userId);
+    }
+
+    /**
+     * @param post
+     * @return Post
+     */
+    @Override
+    public Post createPost(PostRecord postRecord) {
+
+        var user = this.userRepository.findById(postRecord.user_id());
+
+        if (!user.isPresent()) {
+            throw new UserNotFoundException("User " + postRecord.user_id() + " not found.");
+        }
+
+        var post = new Post(postRecord.id(), postRecord.description(), user.get());
+
+        return this.postRepository.save(post);
     }
 
 }

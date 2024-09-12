@@ -1,0 +1,27 @@
+### Valid Request
+POST http://localhost:8080/api/posts
+content-type: application/json
+
+{
+  "description": "I want to learn AWS",
+  "user_id": 1
+}
+
+### Invalid Description
+POST http://localhost:8080/api/posts
+content-type: application/json
+
+{
+  "description": "AWS",
+  "user_id": 1
+}
+
+
+### Invalid user_id
+POST http://localhost:8080/api/posts
+content-type: application/json
+
+{
+  "description": "I want to learn AWS",
+  "user_id": 1000
+}
