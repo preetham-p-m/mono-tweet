@@ -30,11 +30,18 @@ public class UserController {
         this.userService = userService;
     }
 
+    /**
+     * @return List<User>
+     */
     @GetMapping()
     public List<User> getAllUsers() {
         return this.userService.getAllUsers();
     }
 
+    /**
+     * @param id
+     * @return EntityModel<User>
+     */
     @GetMapping("/{id}")
     public EntityModel<User> getUserById(@PathVariable int id) {
         var user = this.userService.getUserById(id);
@@ -46,6 +53,10 @@ public class UserController {
         return entityModel;
     }
 
+    /**
+     * @param user
+     * @return ResponseEntity<User>
+     */
     @PostMapping()
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         var createdUser = this.userService.createUser(user);
@@ -56,6 +67,9 @@ public class UserController {
         return ResponseEntity.created(location).body(createdUser);
     }
 
+    /**
+     * @param id
+     */
     @DeleteMapping("{id}")
     public void deleteUserById(@PathVariable int id) {
         this.userService.deleteUserById(id);
