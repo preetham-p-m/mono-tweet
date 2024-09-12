@@ -15,5 +15,5 @@ public interface PostService {
      * @param userId
      * @return List<Post>
      */
-    List<Post> getAllPostsForUser(int userId);
+    List<Post> getAllPostsForUser(long userId);
 }

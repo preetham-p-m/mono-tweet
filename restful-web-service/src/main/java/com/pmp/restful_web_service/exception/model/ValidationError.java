@@ -13,7 +13,7 @@ public class ValidationError {
 
     private final LocalDateTime timeStamp;
 
-    private final int errorCount;
+    private final long errorCount;
 
     private final List<ValidationField> validationErrors;
 

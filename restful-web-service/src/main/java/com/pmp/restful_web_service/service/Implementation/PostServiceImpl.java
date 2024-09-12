@@ -36,7 +36,7 @@ public class PostServiceImpl implements PostService {
      * @return List<Post>
      */
     @Override
-    public List<Post> getAllPostsForUser(int userId) {
+    public List<Post> getAllPostsForUser(long userId) {
 
         if (!this.userRepository.findById(userId).isPresent()) {
             throw new UserNotFoundException("User " + userId + " not found.");

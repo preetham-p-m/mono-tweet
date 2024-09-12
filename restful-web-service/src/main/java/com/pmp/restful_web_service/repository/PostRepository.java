@@ -8,5 +8,5 @@ import com.pmp.restful_web_service.model.Post;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    List<Post> findAllByUserId(int userId);
+    List<Post> findAllByUserId(long userId);
 }

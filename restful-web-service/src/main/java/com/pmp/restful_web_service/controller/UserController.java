@@ -43,8 +43,9 @@ public class UserController {
      * @return EntityModel<User>
      */
     @GetMapping("/{id}")
-    public EntityModel<User> getUserById(@PathVariable int id) {
+    public EntityModel<User> getUserById(@PathVariable long id) {
         var user = this.userService.getUserById(id);
+
         EntityModel<User> entityModel = EntityModel.of(user);
 
         WebMvcLinkBuilder link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).getAllUsers());
@@ -71,7 +72,7 @@ public class UserController {
      * @param id
      */
     @DeleteMapping("{id}")
-    public void deleteUserById(@PathVariable int id) {
+    public void deleteUserById(@PathVariable long id) {
         this.userService.deleteUserById(id);
     }
 

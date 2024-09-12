@@ -15,7 +15,7 @@ public interface UserService {
      * @param id
      * @return User
      */
-    User getUserById(int id);
+    User getUserById(long id);
 
     /**
      * @param user
@@ -26,5 +26,5 @@ public interface UserService {
     /**
      * @param id
      */
-    void deleteUserById(int id);
+    void deleteUserById(long id);
 }

@@ -1,7 +1,5 @@
 package com.pmp.restful_web_service.service.Implementation;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -33,7 +31,7 @@ public class UserServiceImpl implements UserService {
      * @return User
      */
     @Override
-    public User getUserById(int id) {
+    public User getUserById(long id) {
         return this.userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User " + id + " not found."));
     }
@@ -51,7 +49,7 @@ public class UserServiceImpl implements UserService {
      * @param id
      */
     @Override
-    public void deleteUserById(int id) {
+    public void deleteUserById(long id) {
         this.userRepository.deleteById(id);
     }
 
