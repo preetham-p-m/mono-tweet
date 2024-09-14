@@ -78,10 +78,10 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
             list.add(new ValidationField(fieldName, error.getDefaultMessage()));
         }
 
-        return getValidationErros(list);
+        return getValidationErrors(list);
     }
 
-    private static ValidationError getValidationErros(List<ValidationField> validationErrors) {
+    private static ValidationError getValidationErrors(List<ValidationField> validationErrors) {
         return new ValidationError(LocalDateTime.now(), validationErrors);
     }
 
