@@ -23,6 +23,11 @@ spring:
     console:
       enabled: true
 
+  security:
+    user:
+      name: root
+      password: password
+
   jpa:
     defer-datasource-initialization: true
     show-sql: true
