@@ -3,6 +3,7 @@ package com.pmp.restful_web_service.controller;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.pmp.restful_web_service.aop.annotation.RateLimit;
 import com.pmp.restful_web_service.model.User;
 import com.pmp.restful_web_service.service.interfaces.UserService;
 
@@ -34,6 +35,7 @@ public class UserController {
      * @return List<User>
      */
     @GetMapping()
+    @RateLimit
     public List<User> getAllUsers() {
         return this.userService.getAllUsers();
     }
