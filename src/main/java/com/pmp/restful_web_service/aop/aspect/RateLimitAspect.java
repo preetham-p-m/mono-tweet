@@ -23,6 +23,7 @@ public class RateLimitAspect {
     @Before("@annotation(com.pmp.restful_web_service.aop.annotation.RateLimit)")
     public void beforeRequest(JoinPoint joinPoint) throws NoSuchMethodException {
         // Extracts the client’s IP address to track requests per user.
+        // https://www.youtube.com/watch?v=mQCJJqUfn9Y - Sliding Window Log
         final ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder
                 .currentRequestAttributes();
         final String key = requestAttributes.getRequest().getRemoteAddr();
