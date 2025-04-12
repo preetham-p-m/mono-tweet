@@ -40,7 +40,7 @@ public class HelloWorldController {
 
     @GetMapping("/hello-world/{name}")
     public HelloWorld getMethodName(@PathVariable String name) {
-        return new HelloWorld(String.format("Hello World, %s", name));
+        return new HelloWorld("Hello World, %s".formatted(name));
     }
 
 }

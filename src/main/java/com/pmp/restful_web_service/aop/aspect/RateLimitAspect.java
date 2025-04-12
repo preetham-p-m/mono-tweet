@@ -43,7 +43,7 @@ public class RateLimitAspect {
 
         if (this.requestCounts.get(key).size() > rateLimit) {
             throw new TooManyRequestsException(
-                    String.format("Too many requests to " + requestAttributes.getRequest().getRequestURI()));
+                    ("Too many requests to " + requestAttributes.getRequest().getRequestURI()).formatted());
         }
     }
 

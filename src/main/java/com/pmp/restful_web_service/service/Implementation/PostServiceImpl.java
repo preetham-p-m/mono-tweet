@@ -39,7 +39,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<Post> getAllPostsForUser(long userId) {
 
-        if (!this.userRepository.findById(userId).isPresent()) {
+        if (this.userRepository.findById(userId).isEmpty()) {
             throw new UserNotFoundException("User " + userId + " not found.");
         }
 
@@ -55,7 +55,7 @@ public class PostServiceImpl implements PostService {
 
         var user = this.userRepository.findById(postRecord.user_id());
 
-        if (!user.isPresent()) {
+        if (user.isEmpty()) {
             throw new UserNotFoundException("User " + postRecord.user_id() + " not found.");
         }
 

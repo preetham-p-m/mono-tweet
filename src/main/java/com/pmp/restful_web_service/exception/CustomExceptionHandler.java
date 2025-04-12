@@ -73,7 +73,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
         for (ObjectError error : ex.getAllErrors()) {
 
-            var fieldName = error instanceof FieldError ? ((FieldError) error).getField() : "unknown";
+            var fieldName = error instanceof FieldError fe ? fe.getField() : "unknown";
 
             list.add(new ValidationField(fieldName, error.getDefaultMessage()));
         }
