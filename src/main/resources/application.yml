@@ -11,10 +11,10 @@ management:
 
 spring:
   application:
-    name: restful-web-service
+    name: mono-tweet
 
   datasource:
-    # url: jdbc:h2:mem:testdb
+    # url: jdbc:h2:mem:mono_tweet
     url: jdbc:mysql://localhost:3306/mono_tweet
     username: user
     password: user_password
