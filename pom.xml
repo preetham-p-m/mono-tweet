@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.4</version>
+		<version>3.4.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pmp</groupId>
-	<artifactId>restful-web-service</artifactId>
+	<artifactId>mono-tweet</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>restful-web-service</name>
-	<description>restful spring boot application</description>
+	<name>mono-tweet</name>
+	<description>mono-tweet application</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -55,10 +55,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-explorer</artifactId>
 		</dependency>
+
 		<!-- <dependency>
     	<groupId>com.fasterxml.jackson.dataformat</groupId>
     	<artifactId>jackson-dataformat-xml</artifactId>
@@ -74,7 +81,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.38</version>
 			<scope>provided</scope>
 		</dependency>
 

@@ -15,9 +15,9 @@ spring:
 
   datasource:
     # url: jdbc:h2:mem:testdb
-    url: jdbc:mysql://localhost:3306/social_media_application
-    username: root
-    password: password
+    url: jdbc:mysql://localhost:3306/mono_tweet
+    username: user
+    password: user_password
 
   h2:
     console:
